@@ -61,7 +61,8 @@ header a{
     margin-top: -4px;
 }
 
-header a:hover{
+header a:hover, 
+.actived{
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -74,8 +75,7 @@ header a:hover{
     transition: color 500ms, transform 500ms;
 }
 
-#logo a:hover,
-.actived{
+#logo a:hover{
     background-color: transparent;
     color: black;
     transform: scale(1.50,1.50);

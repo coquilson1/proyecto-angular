@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; //Para poder hacer las peticiones ajax
+import { FormsModule } from '@angular/forms'; //Importamos librerias para formularios
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routing';
 
