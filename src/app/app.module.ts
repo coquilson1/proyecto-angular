@@ -6,21 +6,25 @@ import { routing, appRoutingProviders } from './app.routing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+//veo que los siguientes componentes se importan en automàtico con el comando ng g component nombrecomponent
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    //veo que los siguiente se coloca en automàtico con el comando ng g component nombrecomponent
     AboutComponent,
     ProjectsComponent,
     CreateComponent,
     ContactComponent,
-    ErrorComponent
+    ErrorComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

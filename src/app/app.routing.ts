@@ -1,11 +1,12 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
+//veo que los siguientes componentes se importan en automàtico con el comando ng g component nombrecomponent
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
+import { DetailComponent } from "./components/detail/detail.component";
 
 const appRoutes: Routes = [
     {path: '', component: AboutComponent},
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     {path: 'proyectos', component: ProjectsComponent},
     {path: 'crear-proyecto', component: CreateComponent},
     {path: 'contacto', component: ContactComponent},
+    {path: 'proyecto/:id', component: DetailComponent},
     {path: '**', component: ErrorComponent}
 ];
 

@@ -13,6 +13,7 @@ import { Global } from 'src/app/services/global';
 export class CreateComponent implements OnInit{
   public title: string;
   public project: Project;
+  public save_project: Project;
   public status: string;
   public filesToUpload: Array<File>;
 
@@ -24,7 +25,7 @@ export class CreateComponent implements OnInit{
     this.project = new Project('','','','',2023,'','');
     this.status = "";
     this.filesToUpload = new Array<File>;
-
+    this.save_project = new Project('','','','',2023,'','');
   }
 
   ngOnInit(): void {
@@ -33,12 +34,17 @@ export class CreateComponent implements OnInit{
 
   onSubmit(form: any){
     console.log(this.project);
+
     this._ProjectService.saveProject(this.project).subscribe(
       response => {
         if(response.project){
           
           //subir la imagen
-          this._uploadService.makeFileRequest(Global.url+"upload-image/"+response.project._id, [], this.filesToUpload, 'image').then((result:any) => {
+          this._uploadService.makeFileRequest(Global.url+"upload-image/"+response.project._id, [], this.filesToUpload, 'image')
+          .then((result:any) => {
+            
+            this.save_project = result.project;
+            
             this.status = "success";
             form.reset();
             console.log(result);
