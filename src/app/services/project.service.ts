@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Project } from "../models/project";
 import { Global } from "./global";
+import { JsonPipe } from "@angular/common";
 
 @Injectable()
 export class ProjectService {
@@ -30,7 +31,22 @@ export class ProjectService {
     }
     
     getProject(id: string): Observable<any>{
+        console.log('entra al método getProject del ProjectService');
+        console.log(id);
+        
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url+'proyect/'+id,{headers: headers});
+        return this._http.get(this.url+'project/'+id,{headers: headers});
     }
+
+    deleteProject(id: string): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.delete(this.url+'delete-project/'+id,{headers: headers});
+    }
+
+    updateProject(project: Project): Observable<any>{
+        let params = JSON.stringify(project);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.put(this.url+'project/'+project._id,params, {headers: headers});
+    }
+
 }
