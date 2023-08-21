@@ -1,1 +1,15 @@
-<p>contact works!</p>
+<div class="container">
+    <h1>Contacto</h1>
+
+    Tamaño del Slider
+    <input type="number" [(ngModel)]="widthSlider"/>
+    <button (click)="cargarSlider()">Cargar Slider</button>
+    <button (click)="resetearSlider()">Resetear Slider</button>
+
+    <div *ngIf="anchuraToSlider">
+        <!--A continuación el componente hijo y cómo le pasamos un atributo-->
+        <slider [anchura]="anchuraToSlider"
+                [etiquetas]="captions"
+                ></slider> <!--Este es el nombre de la etiqueta configurada en la clase del componente-->
+    </div>
+</div>

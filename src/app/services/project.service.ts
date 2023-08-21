@@ -46,7 +46,7 @@ export class ProjectService {
     updateProject(project: Project): Observable<any>{
         let params = JSON.stringify(project);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.put(this.url+'project/'+project._id,params, {headers: headers});
+        return this._http.put(this.url+'update-project/'+project._id,params, {headers: headers});
     }
 
 }

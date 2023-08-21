@@ -17,6 +17,9 @@ export class CreateComponent implements OnInit{
   public status: string;
   public filesToUpload: Array<File>;
 
+  //propiedad que cargo debido a que se usa en el create.component referenciado por el edit.component
+  public url: string;
+
   constructor(
     private _ProjectService: ProjectService,
     private _uploadService: UploadService
@@ -26,6 +29,8 @@ export class CreateComponent implements OnInit{
     this.status = "";
     this.filesToUpload = new Array<File>;
     this.save_project = new Project('','','','',2023,'','');
+
+    this.url = "";
   }
 
   ngOnInit(): void {
