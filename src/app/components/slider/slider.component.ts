@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'; //El Input? y el Output son decoradores
+                                                                                //El EventEmitter es para crear nuevos eventos por 
+                                                                                //nosotros mismos 
 declare var $:any;
 
 @Component({
@@ -10,10 +12,21 @@ export class SliderComponent implements OnInit{
 
   @Input() anchura: number;
   @Input('etiquetas') captions: boolean
+  @Output() conseguirAutor = new EventEmitter();
+
+
+  public autor: any;
 
   constructor(){
     this.anchura = 0;
     this.captions = false;
+    
+    this.autor = {
+      nombre: "Jorge Infante",
+      website: "jorgeinfanteweb.pe",
+      youtube: "Jorge Infante Web"
+    };
+
   }
 
   ngOnInit(): void {
@@ -30,6 +43,11 @@ export class SliderComponent implements OnInit{
       captions: this.captions,
       slideWidth: this.anchura
     });
+  }
+
+  lanzar(event:any){
+    console.log(event);
+    this.conseguirAutor.emit(this.autor);
   }
 
 }

@@ -16,11 +16,12 @@ import { DetailComponent } from './components/detail/detail.component';
 import { EditComponent } from './components/edit/edit.component';
 
 import * as $ from 'jquery';
-import { SliderComponent } from './components/slider/slider.component' //para trabajar a manera global con el jquery 
+import { SliderComponent } from './components/slider/slider.component';
+import { ResaltadoDirective } from './resaltado.directive' //para trabajar a manera global con el jquery 
 
 
 @NgModule({
-  declarations: [
+  declarations: [ //Las directivas, pipes y componentes van en declarations 
     AppComponent,
     //veo que los siguiente se coloca en automàtico con el comando ng g component nombrecomponent
     AboutComponent,
@@ -30,7 +31,8 @@ import { SliderComponent } from './components/slider/slider.component' //para tr
     ErrorComponent,
     DetailComponent,
     EditComponent,
-    SliderComponent
+    SliderComponent,
+    ResaltadoDirective
   ],
   imports: [
     BrowserModule,

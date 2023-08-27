@@ -1,6 +1,14 @@
 <div class="container">
     <h1>Contacto</h1>
 
+    <div id="texto" #textos>
+        <p appResaltado>
+            Esta es la pagina de contacto, puedes enviarnos cualquier duda<br/><br/>
+        </p>
+    </div>
+
+
+    <br/>
     Tamaño del Slider
     <input type="number" [(ngModel)]="widthSlider"/>
     <button (click)="cargarSlider()">Cargar Slider</button>
@@ -10,6 +18,11 @@
         <!--A continuación el componente hijo y cómo le pasamos un atributo-->
         <slider [anchura]="anchuraToSlider"
                 [etiquetas]="captions"
+                (conseguirAutor)="getAutor($event)"
                 ></slider> <!--Este es el nombre de la etiqueta configurada en la clase del componente-->
     </div>
+
+    <span *ngIf="autor">{{autor.nombre + " " + autor.website}}</span>
+    
+
 </div>
